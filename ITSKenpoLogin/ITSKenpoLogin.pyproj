@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6f1f3934-a579-4544-8720-d947712d5293</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ITSKenpoLogin.py</StartupFile>
+    <StartupFile>ITSScheduler.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ITSKenpoLogin.py" />
+    <Compile Include="ITSScheduler.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ITSUpdateMission.py">
       <SubType>Code</SubType>
     </Compile>

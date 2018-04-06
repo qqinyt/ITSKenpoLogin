@@ -37,7 +37,7 @@ session.cookies = cookielib.LWPCookieJar(filename='cookies')
 try:
     session.cookies.load(ignore_discard=True)
 except:
-   print("Cookie 未能加载")
+   print("Cookie is not loaded")
 
 # token情報をロードする
 def get_token():
@@ -84,12 +84,11 @@ def login(kigou, bangou, password):
 
     return False
 
-try:
-    input = raw_input
-except:
-    pass
+# ログアウトする
+def logout():
+    session.get('https://its-kenpo.mhweb.jp/logout', headers = headers)
 
-if __name__ == '__main__':
-        if login('','', '') == True:
-           TSUpdateMission.update(session, _token)
-           ITSVitalInput.update(session, _token)
+#if __name__ == '__main__':
+#        if login('','', '') == True:
+#           TSUpdateMission.update(session, _token)
+#           ITSVitalInput.update(session, _token)

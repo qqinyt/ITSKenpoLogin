@@ -18,17 +18,28 @@ except:
 import re
 import time
 import json
+import random
 
-url = 'https://its-kenpo.mhweb.jp/vital/'
+
 # リクエストヘッダーを作成
 agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
 headers = {
     "Host": "its-kenpo.mhweb.jp",
-    "Referer": url,
+    "Referer": 'https://its-kenpo.mhweb.jp/vital/',
     'User-Agent': agent,
     'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
     'X-Requested-With':'XMLHttpRequest'
 }
+
+#歩数
+def getTargetSteps():
+    return random.randint(3000, 15000)
+#高血圧
+def getHighPressure():
+    return random.randint(110,130)
+#低血圧
+def getLowPressure():
+    return random.randint(70,90)
 
 def update(session, token):
     headers['X-CSRF-TOKEN'] = token
@@ -42,9 +53,9 @@ def update(session, token):
             'day': date.today().day,
             'data':json.dumps(before_ymd),
             'UserWeight':'',
-            'UserHighPressure':'130',
-            'UserLowPressure':'89',
-            'UserTargetSteps':'7856',
+            'UserHighPressure':getHighPressure(),
+            'UserLowPressure':getLowPressure(),
+            'UserTargetSteps':getTargetSteps(),
             'modelDisplayYm':''
         }
 
