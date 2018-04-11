@@ -19,7 +19,7 @@ import re
 import time
 import json
 import random
-
+import logging
 
 # リクエストヘッダーを作成
 agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
@@ -59,5 +59,9 @@ def update(session, token):
             'modelDisplayYm':''
         }
 
+    logging.info('Begin Update Vital.')
     page = session.post('https://its-kenpo.mhweb.jp/vital/updateVitalData', verify=False, data=json.dumps(postdata), headers=headers)
-    print(page.status_code)
+    if page.stauts_code == 200:
+        logging.info('Update Vital Success.')
+    else:
+        logging.info('Update Vital Failed.Code:' + page.status_code)

@@ -17,6 +17,7 @@ except:
     import http.cookiejar as cookielib
 import re
 import time
+import logging
 
 
 url = 'https://its-kenpo.mhweb.jp/mission/record/save'
@@ -40,5 +41,9 @@ def update(session, token):
             'y': '11'
         }
 
+    logging.info('Begin Update Mission')
     page = session.post(url, verify=False, data=postdata, headers=headers)
-    print(page.status_code)
+    if page.stauts_code == 200:
+        logging.info('Update Mission Success')
+    else:
+        logging.info('Update Mission Failed.Code:' + page.status_code)

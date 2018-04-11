@@ -28,7 +28,16 @@
     <Compile Include="ITSUpdateMission.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ITSView.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ITSVitalInput.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoginInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MailSender.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

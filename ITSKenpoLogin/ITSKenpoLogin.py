@@ -19,6 +19,7 @@ import re
 import time
 import ITSUpdateMission
 import ITSVitalInput
+import logging
 
 url = 'https://its-kenpo-oauth.mhweb.jp/oauth/login?response_type=code&client_id=NTQxMDI4ZjY3Y2E3ZTNh&redirect_uri=https%3A%2F%2Fits-kenpo.mhweb.jp%2Flogin%2Fcallback'
 _token = ''
@@ -74,9 +75,11 @@ def login(kigou, bangou, password):
     headers['Origin'] = 'https://its-kenpo-oauth.mhweb.jp'
     headers['Upgrade-Insecure-Requests'] = '1'
 
+    logging.info('Begin Login.')
     login_page = session.post(url, verify=False, data=postdata, headers=headers)
 
     if login_page.status_code == 200 :
+        logging.info('Login Success.')
         pattern = r'name="__token" content="(.*?)"'
         globals()['_token'] = re.findall(pattern, login_page.text)[0]
         session.cookies.save()
@@ -86,7 +89,9 @@ def login(kigou, bangou, password):
 
 # ログアウトする
 def logout():
-    session.get('https://its-kenpo.mhweb.jp/logout', headers = headers)
+    logging.info('Begin Logout.')
+    session.get('https://its-kenpo.mhweb.jp/logout', headers = headers, verify=False)
+    logging.info('Logout Success.')
 
 #if __name__ == '__main__':
 #        if login('','', '') == True:
