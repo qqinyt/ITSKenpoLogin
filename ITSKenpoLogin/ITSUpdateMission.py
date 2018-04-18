@@ -43,7 +43,7 @@ def update(session, token):
 
     logging.info('Begin Update Mission')
     page = session.post(url, verify=False, data=postdata, headers=headers)
-    if page.stauts_code == 200:
+    if page.status_code == 200:
         logging.info('Update Mission Success')
     else:
         logging.info('Update Mission Failed.Code:' + page.status_code)

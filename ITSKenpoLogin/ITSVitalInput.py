@@ -61,7 +61,7 @@ def update(session, token):
 
     logging.info('Begin Update Vital.')
     page = session.post('https://its-kenpo.mhweb.jp/vital/updateVitalData', verify=False, data=json.dumps(postdata), headers=headers)
-    if page.stauts_code == 200:
+    if page.status_code == 200:
         logging.info('Update Vital Success.')
     else:
         logging.info('Update Vital Failed.Code:' + page.status_code)

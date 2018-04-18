@@ -97,3 +97,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+ITSKenpoLogin/login.xml
+ITSKenpoLogin/login.xml
+ITSKenpoLogin/cookies
+ITSKenpoLogin/login.xml
+*.xml
+ITSKenpoLogin/login.xml
+ITSKenpoLogin/login.xml

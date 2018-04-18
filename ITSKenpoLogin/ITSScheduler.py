@@ -58,7 +58,8 @@ if __name__ == '__main__':
             parser.setContentHandler(logininfo)
             parser.parse("login.xml")
 
-            # スケジュール作成
-            sched = BlockingScheduler()
-            sched.add_job(job,'cron', day='*', hour='10')
-            sched.start()
+            ## スケジュール作成
+            #sched = BlockingScheduler()
+            #sched.add_job(job,'cron', day='*', hour='10')
+            #sched.start()
+            job()
